@@ -46,6 +46,16 @@
 			<artifactId>aws-java-sdk-rekognition</artifactId>
 			<version>1.12.779</version>
 		</dependency>
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>textract</artifactId>
+			<version>2.20.42</version> <!-- Verifique se é a versão mais recente -->
+		</dependency>
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>s3</artifactId>
+			<version>2.20.42</version> <!-- Verifique se é a versão mais recente -->
+		</dependency>
 
 		<!-- Lombok (opcional, para reduzir boilerplate) -->
 		<dependency>
