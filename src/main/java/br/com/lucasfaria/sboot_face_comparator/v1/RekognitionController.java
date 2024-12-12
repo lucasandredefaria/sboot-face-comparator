@@ -1,4 +1,4 @@
-package br.com.lucasfaria.sboot_face_comparator;
+package br.com.lucasfaria.sboot_face_comparator.v1;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class RekognitionController {
 
     private final RekognitionService rekognitionService;

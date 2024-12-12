@@ -1,17 +1,12 @@
-package br.com.lucasfaria.sboot_face_comparator;
+package br.com.lucasfaria.sboot_face_comparator.v1;
 
 import com.amazonaws.services.rekognition.AmazonRekognition;
 import com.amazonaws.services.rekognition.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import software.amazon.awssdk.services.textract.model.BlockType;
-import software.amazon.awssdk.services.textract.model.DetectDocumentTextRequest;
-import software.amazon.awssdk.services.textract.model.DetectDocumentTextResponse;
-import software.amazon.awssdk.services.textract.model.Document;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class RekognitionService {

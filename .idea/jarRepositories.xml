@@ -26,5 +26,15 @@
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="opencv-repo" />
+      <option name="name" value="opencv-repo" />
+      <option name="url" value="https://github.com/opencv/opencv/releases/download/4.5.1/opencv-4.5.1.jar" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="opencv-repo" />
+      <option name="name" value="opencv-repo" />
+      <option name="url" value="https://github.com/opencv/opencv/releases/download/4.10.0" />
+    </remote-repository>
   </component>
 </project>
