@@ -12,22 +12,10 @@ public class FaceComparisonController {
     @Autowired
     private FaceComparisonService faceComparisonService;
 
-    @Autowired
-    private PythonScriptExecutor pythonScriptExecutor;
-
-    @PostMapping("/compare-from-py")
-    public int compareFaces(@RequestParam("image1") MultipartFile image1,
-                            @RequestParam("image2") MultipartFile image2) {
+    @PostMapping("/compare-faces")
+    public String compareFaces(@RequestParam("image1") String image1,
+                               @RequestParam("image2") String image2) {
         return faceComparisonService.compareFaces(image1, image2);
     }
 
-    @GetMapping("/api/recognize-faces")
-    public String recognizeFaces() {
-        try {
-            String result = pythonScriptExecutor.runPythonScript();
-            return result;
-        } catch (Exception e) {
-            return "Erro ao executar o script Python: " + e.getMessage();
-        }
-    }
 }
