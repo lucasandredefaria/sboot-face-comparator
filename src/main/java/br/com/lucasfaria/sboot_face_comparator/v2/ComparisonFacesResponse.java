@@ -1,15 +1,15 @@
 package br.com.lucasfaria.sboot_face_comparator.v2;
 
-public class ComparisonResponse {
+public class ComparisonFacesResponse {
     private String status;
     private String message;
 
-    public ComparisonResponse(String status, String message) {
+    public ComparisonFacesResponse(String status, String message) {
         this.status = status;
         this.message = message;
     }
 
-    public ComparisonResponse(String message) {
+    public ComparisonFacesResponse(String message) {
         this.message = message;
     }
 
