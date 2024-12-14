@@ -12,6 +12,9 @@ public class FaceRecognitionController {
     @Autowired
     private FaceRecognitionService faceComparisonService;
 
+    @Autowired
+    private FaceRecognitionDirectoryService faceRecognitionDirectoryService;
+
     @PostMapping("/compare-faces")
     public CompletableFuture<ResponseEntity<ComparisonFacesResponse>> compareFaces(@RequestParam("image1") String image1,
                                                                                    @RequestParam("image2") String image2) {
@@ -26,6 +29,11 @@ public class FaceRecognitionController {
             return ResponseEntity.ok(response);
         else
             return ResponseEntity.status(500).body(response);
+    }
+
+    @PostMapping("/process-directory")
+    public String processDirectory(@RequestParam String directoryPath) {
+        return faceRecognitionDirectoryService.processDirectory(directoryPath);
     }
 
 }
