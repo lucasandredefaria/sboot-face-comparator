@@ -10,21 +10,24 @@ import java.util.concurrent.CompletableFuture;
 public class FaceRecognitionController {
 
     @Autowired
-    private FaceRecognitionService faceComparisonService;
+    private CountFacesService countFacesService;
 
     @Autowired
-    private FaceRecognitionDirectoryService faceRecognitionDirectoryService;
+    private CompareFacesService compareFacesService;
+
+    @Autowired
+    private FaceRecognitionProcessorService faceRecognitionDirectoryService;
 
     @PostMapping("/compare-faces")
-    public CompletableFuture<ResponseEntity<ComparisonFacesResponse>> compareFaces(@RequestParam("image1") String image1,
-                                                                                   @RequestParam("image2") String image2) {
-        return faceComparisonService.compareFacesAsync(image1, image2)
+    public CompletableFuture<ResponseEntity<CompareFacesResponse>> compareFaces(@RequestParam("image1") String image1,
+                                                                                @RequestParam("image2") String image2) {
+        return compareFacesService.compareFacesAsync(image1, image2)
                 .thenApply(ResponseEntity::ok);
     }
 
     @PostMapping("/count-faces")
-    public ResponseEntity<CountFacesResponse> compareFaces(@RequestParam String imagePath) {
-        CountFacesResponse response = faceComparisonService.countFaces(imagePath);
+    public ResponseEntity<CountFacesResponse> compareFaces(@RequestParam String image) {
+        CountFacesResponse response = countFacesService.countFaces(image);
         if ("success".equals(response.getStatus()))
             return ResponseEntity.ok(response);
         else
@@ -35,5 +38,10 @@ public class FaceRecognitionController {
     public String processDirectory(@RequestParam String directoryPath) {
         return faceRecognitionDirectoryService.processDirectory(directoryPath);
     }
+
+//    @PostMapping("/extract-text")
+//    public FacesRecognitionResponse extractTextFromImage(@RequestParam String directoryPath) {
+//        return faceComparisonService.extractTextFromImage(directoryPath);
+//    }
 
 }

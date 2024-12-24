@@ -3,12 +3,12 @@ import os
 import face_recognition
 import json
 
-def compare_faces(image_path):
+def count_faces(image_path):
     if not os.path.exists(image_path):
-        return json.dumps({"status": "error", "message": f"Imagem '{image_path}' não encontrada."})
+        return json.dumps({"status": "error", "message": f"Imagem {image_path} nao encontrada."})
 
     if not image_path.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp')):
-        return json.dumps({"status": "error", "message": "O arquivo não é uma imagem válida."})
+        return json.dumps({"status": "error", "message": "O arquivo nao e uma imagem valida."})
 
     try:
         image = face_recognition.load_image_file(image_path)
@@ -24,11 +24,12 @@ def compare_faces(image_path):
 
 def main():
     if len(sys.argv) != 2:
-        print("Erro: Forneça o caminho da imagem como parâmetro.")
+        print("Erro: Forneca o caminho da imagem como parametro.")
         sys.exit(1)
 
     image_path = sys.argv[1]
-    result = compare_faces(image_path)
+    print(image_path)
+    result = count_faces(image_path)
     print(result)
 
 if __name__ == "__main__":
